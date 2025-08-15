@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.viniciusmacedo</groupId>
-	<artifactId>controlador-tarefas</artifactId>
+	<artifactId>task-manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>controlador-tarefas</name>
+	<name>task-manager</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
