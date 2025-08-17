@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,12 +19,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private final List<TaskModel> tasks = new ArrayList<>();
 
-    public User(Long id, String username) {
+    public UserModel(Long id, String username) {
         this.id = id;
         this.username = username;
     }
 
-    public User() {
+    public UserModel() {
     }
 
     public Long getId() {
@@ -46,8 +46,8 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
+        UserModel userModel = (UserModel) o;
+        return Objects.equals(id, userModel.id);
     }
 
     @Override

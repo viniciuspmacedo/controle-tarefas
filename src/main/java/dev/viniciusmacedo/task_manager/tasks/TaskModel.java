@@ -1,6 +1,6 @@
 package dev.viniciusmacedo.task_manager.tasks;
 
-import dev.viniciusmacedo.task_manager.users.User;
+import dev.viniciusmacedo.task_manager.users.UserModel;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -14,16 +14,16 @@ public class TaskModel {
     private String description;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserModel userModel;
 
     public TaskModel() {
     }
 
-    public TaskModel(Long id, String title, String description, User user) {
+    public TaskModel(Long id, String title, String description, UserModel userModel) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.user = user;
+        this.userModel = userModel;
     }
 
     public Long getId() {
@@ -46,12 +46,12 @@ public class TaskModel {
         this.description = description;
     }
 
-    public User getUser() {
-        return user;
+    public UserModel getUser() {
+        return userModel;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserModel userModel) {
+        this.userModel = userModel;
     }
 
     @Override
