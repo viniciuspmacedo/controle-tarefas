@@ -14,6 +14,7 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String username;
 
     @OneToMany(mappedBy = "user")
