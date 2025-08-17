@@ -14,16 +14,16 @@ public class TaskModel {
     private String description;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserModel userModel;
+    private UserModel user;
 
     public TaskModel() {
     }
 
-    public TaskModel(Long id, String title, String description, UserModel userModel) {
+    public TaskModel(Long id, String title, String description, UserModel user) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.userModel = userModel;
+        this.user = user;
     }
 
     public Long getId() {
@@ -47,11 +47,11 @@ public class TaskModel {
     }
 
     public UserModel getUser() {
-        return userModel;
+        return user;
     }
 
     public void setUser(UserModel userModel) {
-        this.userModel = userModel;
+        this.user = userModel;
     }
 
     @Override
