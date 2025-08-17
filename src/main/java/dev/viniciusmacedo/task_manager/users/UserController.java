@@ -2,17 +2,26 @@ package dev.viniciusmacedo.task_manager.users;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("/findById")
     public String getTaskById(){
         return "Usuário por id";
     }
 
     @GetMapping("/findAll")
-    public String findAll(){
-        return "Lista de Usuários";
+    public List<UserModel> findAll(){
+        return userService.findAll();
     }
 
     @PutMapping("/editById")
