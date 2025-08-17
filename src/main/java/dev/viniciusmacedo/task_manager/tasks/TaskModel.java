@@ -1,5 +1,6 @@
 package dev.viniciusmacedo.task_manager.tasks;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.viniciusmacedo.task_manager.users.UserModel;
 import jakarta.persistence.*;
 
@@ -14,6 +15,7 @@ public class TaskModel {
     private String description;
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private UserModel user;
 
     public TaskModel() {
