@@ -14,12 +14,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/findById")
-    public String getTaskById(){
-        return "Usuário por id";
+    @GetMapping("/{id}")
+    public UserModel findUserById(@PathVariable Long id){
+        return userService.findById(id);
     }
 
-    @GetMapping("/findAll")
+    @GetMapping
     public List<UserModel> findAll(){
         return userService.findAll();
     }

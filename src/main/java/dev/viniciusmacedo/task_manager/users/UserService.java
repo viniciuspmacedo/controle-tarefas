@@ -16,4 +16,8 @@ public class UserService {
     public List<UserModel> findAll(){
         return userRepository.findAll();
     }
+
+    public UserModel findById(Long id){
+        return userRepository.findById(id).orElse(null);
+    }
 }
