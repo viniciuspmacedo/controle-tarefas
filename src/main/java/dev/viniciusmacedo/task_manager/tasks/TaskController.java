@@ -2,18 +2,26 @@ package dev.viniciusmacedo.task_manager.tasks;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
 
-    @GetMapping("/findById")
-    public String getTaskById(){
-        return "Tarefa por id";
+    private final TaskService taskService;
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
     }
 
-    @GetMapping("/findAll")
-    public String findAll(){
-        return "Lista de Tarefas";
+    @GetMapping("/{id}")
+    public TaskModel getTaskById(@PathVariable Long id){
+        return taskService.findById(id);
+    }
+
+    @GetMapping()
+    public List<TaskModel> findAll(){
+        return taskService.findAll();
     }
 
     @PutMapping("/editById")
