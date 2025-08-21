@@ -15,27 +15,27 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserModel findUserById(@PathVariable Long id){
+    public UserModel findUserById(@PathVariable Long id) {
         return userService.findById(id);
     }
 
     @GetMapping
-    public List<UserModel> findAll(){
+    public List<UserModel> findAll() {
         return userService.findAll();
     }
 
     @PutMapping("/editById")
-    public String editUser(){
+    public String editUser() {
         return "Usuário editado com sucesso";
     }
 
-    @PostMapping("/create")
-    public String createUser(){
-        return "Usuário salvo com sucesso";
+    @PostMapping()
+    public UserModel createUser(@RequestBody UserModel user) {
+        return userService.createUser(user);
     }
 
     @DeleteMapping("/delete")
-    public String deleteUser(){
+    public String deleteUser() {
         return "Usuário deletado com sucesso";
     }
 }
