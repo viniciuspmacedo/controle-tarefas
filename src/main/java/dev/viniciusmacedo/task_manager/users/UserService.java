@@ -13,20 +13,29 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<UserModel> findAll(){
+    public List<UserModel> findAll() {
         return userRepository.findAll();
     }
 
-    public UserModel findById(Long id){
+    public UserModel findById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public UserModel createUser( UserModel user){
+    public UserModel createUser(UserModel user) {
         return userRepository.save(user);
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public UserModel editById(Long id, UserModel userModel) {
+        if (userRepository.existsById(id)) {
+            userModel.setId(id);
+            return userRepository.save(userModel);
+        } else {
+            return null;
+        }
     }
 
 }

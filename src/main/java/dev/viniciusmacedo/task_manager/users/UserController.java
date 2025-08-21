@@ -24,9 +24,9 @@ public class UserController {
         return userService.findAll();
     }
 
-    @PutMapping("/editById")
-    public String editUser() {
-        return "Usuário editado com sucesso";
+    @PutMapping("{id}")
+    public UserModel editById(@PathVariable Long id, @RequestBody UserModel userModel) {
+        return userService.editById(id, userModel);
     }
 
     @PostMapping()
