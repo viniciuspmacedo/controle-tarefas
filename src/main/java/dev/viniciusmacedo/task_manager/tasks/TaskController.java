@@ -34,9 +34,9 @@ public class TaskController {
         return taskService.createTask(task);
     }
 
-    @DeleteMapping("/delete")
-    public String deleteTask(){
-        return "Tarefa deletada com sucesso";
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id){
+        taskService.deleteById(id);
     }
 
 

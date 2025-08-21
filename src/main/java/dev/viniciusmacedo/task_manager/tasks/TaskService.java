@@ -24,4 +24,8 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
+    public void deleteById(Long id){
+        taskRepository.deleteById(id);
+    }
+
 }
