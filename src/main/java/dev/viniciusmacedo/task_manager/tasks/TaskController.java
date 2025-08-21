@@ -29,9 +29,9 @@ public class TaskController {
         return "Tarefa editada com sucesso";
     }
 
-    @PostMapping("/create")
-    public String createTask(){
-        return "Tarefa salva com sucesso";
+    @PostMapping
+    public TaskModel createTask(@RequestBody TaskModel task){
+        return taskService.createTask(task);
     }
 
     @DeleteMapping("/delete")

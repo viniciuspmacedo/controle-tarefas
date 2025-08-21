@@ -20,4 +20,8 @@ public class TaskService {
         return taskRepository.findById(id).orElse(null);
     }
 
+    public TaskModel createTask(TaskModel task){
+        return taskRepository.save(task);
+    }
+
 }
