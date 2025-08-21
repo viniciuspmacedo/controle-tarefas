@@ -5,6 +5,7 @@ import dev.viniciusmacedo.task_manager.users.UserModel;
 import jakarta.persistence.*;
 
 import java.util.Objects;
+
 @Entity
 @Table(name = "tb_task")
 public class TaskModel {
@@ -30,6 +31,10 @@ public class TaskModel {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {

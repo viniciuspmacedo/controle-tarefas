@@ -15,27 +15,27 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public TaskModel getTaskById(@PathVariable Long id){
+    public TaskModel getTaskById(@PathVariable Long id) {
         return taskService.findById(id);
     }
 
     @GetMapping()
-    public List<TaskModel> findAll(){
+    public List<TaskModel> findAll() {
         return taskService.findAll();
     }
 
-    @PutMapping("/editById")
-    public String editTask(){
-        return "Tarefa editada com sucesso";
+    @PutMapping("/{id}")
+    public TaskModel editTask(@PathVariable Long id, @RequestBody TaskModel taskModel) {
+        return taskService.editById(id, taskModel);
     }
 
     @PostMapping
-    public TaskModel createTask(@RequestBody TaskModel task){
+    public TaskModel createTask(@RequestBody TaskModel task) {
         return taskService.createTask(task);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTask(@PathVariable Long id){
+    public void deleteTask(@PathVariable Long id) {
         taskService.deleteById(id);
     }
 

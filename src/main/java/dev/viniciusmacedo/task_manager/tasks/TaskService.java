@@ -20,12 +20,21 @@ public class TaskService {
         return taskRepository.findById(id).orElse(null);
     }
 
-    public TaskModel createTask(TaskModel task){
+    public TaskModel createTask(TaskModel task) {
         return taskRepository.save(task);
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         taskRepository.deleteById(id);
+    }
+
+    public TaskModel editById(Long id, TaskModel taskModel) {
+        if (taskRepository.existsById(id)) {
+            taskModel.setId(id);
+            return taskRepository.save(taskModel);
+        } else {
+            return null;
+        }
     }
 
 }
