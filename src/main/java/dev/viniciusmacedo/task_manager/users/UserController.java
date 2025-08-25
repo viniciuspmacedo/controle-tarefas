@@ -15,22 +15,22 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserModel findUserById(@PathVariable Long id) {
+    public UserDTO findUserById(@PathVariable Long id) {
         return userService.findById(id);
     }
 
     @GetMapping
-    public List<UserModel> findAll() {
+    public List<UserDTO> findAll() {
         return userService.findAll();
     }
 
     @PutMapping("{id}")
-    public UserModel editById(@PathVariable Long id, @RequestBody UserModel userModel) {
-        return userService.editById(id, userModel);
+    public UserDTO editById(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+        return userService.editById(id, userDTO);
     }
 
     @PostMapping()
-    public UserModel createUser(@RequestBody UserModel user) {
+    public UserDTO createUser(@RequestBody UserDTO user) {
         return userService.createUser(user);
     }
 
