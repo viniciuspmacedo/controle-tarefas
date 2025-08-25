@@ -16,13 +16,16 @@ public class UserModel {
     private Long id;
     @Column(unique = true)
     private String username;
+    private String email;
 
-    @OneToMany(mappedBy = "user")
-    private final List<TaskModel> tasks = new ArrayList<>();
+    @OneToMany(mappedBy = "userId")
+    private List<TaskModel> tasks;
 
-    public UserModel(Long id, String username) {
+    public UserModel(Long id, String username, String email, List<TaskModel> tasks) {
         this.id = id;
         this.username = username;
+        this.email = email;
+        this.tasks = tasks;
     }
 
     public UserModel() {
@@ -58,5 +61,16 @@ public class UserModel {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTasks(List<TaskModel> tasks) {
     }
 }
