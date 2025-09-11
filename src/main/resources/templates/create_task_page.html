@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Tarefas</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div th:insert="~{fragments/top_navigation :: top_navigation}"></div>
+<h1>Criar tarefa</h1>
+<form action="/ui/tasks/create" method="post" th:object="${newTask}">
+    <input type="text" name="title" id="title" placeholder="Título">
+    <input type="text" name="description" id="description" placeholder="Descrição">
+    <div>
+        <select name="userId" required>
+            <option value="">Escolha um usuário</option>
+            <th:blocK th:each="user : ${users}">
+                <option th:value="${user.id}" th:text="${user.username}"></option>
+            </th:blocK>
+        </select>
+    </div>
+
+    <input type="submit" value="Casdastrar">
+</form>
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+h1 {
+    color: #34495e;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+/* Estilo para o container principal das informações */
+div {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+/* Estilo para as informações do usuário */
+p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+p span {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilo para a tabela de tarefas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Remove a borda da última linha da tabela */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Efeito de hover na tabela interna */
+table tbody tr:hover {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para o link de voltar */
+a[href="/ui/users"] {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #95a5a6;
+    color: #ffffff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+a[href="/ui/users"]:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-3px);
+}

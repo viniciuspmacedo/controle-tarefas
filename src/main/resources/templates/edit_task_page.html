@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Tarefas</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div th:insert="~{fragments/top_navigation :: top_navigation}"></div>
+<h1>Criar tarefa</h1>
+<form th:action="@{/ui/tasks/edit/{id}(id=${taskToEdit.id})}" method="post" th:object="${taskToEdit}">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="id" th:field="*{id}">
+    <input type="text" name="title" id="title" placeholder="Título" th:value="${taskToEdit.title}" th:field="*{title}">
+    <input type="text" name="description" id="description" placeholder="Descrição" th:value="${taskToEdit.description}" th:field="*{description}">
+    <input type="submit" value="Salvar">
+</form>
+</body>
+</html>

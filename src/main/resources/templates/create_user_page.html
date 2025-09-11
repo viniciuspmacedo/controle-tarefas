@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div th:insert="~{fragments/top_navigation :: top_navigation}"></div>
+<h1>Criar Usuário</h1>
+<form action="/ui/users/create" method="post" th:object="${newUser}">
+    <input type="text" name="username" id="username" placeholder="Nome de usuário">
+    <input type="email" name="email" id="email" placeholder="email">
+
+    <input type="submit" value="Casdastrar">
+</form>
+</body>
+</html>

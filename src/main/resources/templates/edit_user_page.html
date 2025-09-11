@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar usuário</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div th:insert="~{fragments/top_navigation :: top_navigation}"></div>
+<h1>Editar Usuário</h1>
+<form th:action="@{/ui/users/edit/{id}(id=${userToEdit.id})}" method="post" th:object="${userToEdit}">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" th:field="*{id}">
+    <input type="text" name="username" id="username" placeholder="Nome de usuário" th:value="${userToEdit.username}" th:field="*{username}">
+    <input type="email" name="email" id="email" placeholder="email" th:value="${userToEdit.email}" th:field="*{email}">
+
+    <input type="submit" value="Salvar">
+</form>
+</body>
+</html>

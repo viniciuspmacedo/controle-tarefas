@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:insert="~{fragments/top_navigation :: top_navigation}"></div>
+<h1>Lista de Tarefas</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th colspan="2">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="task : ${tasks}">
+        <tr>
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td><a th:href="@{/ui/tasks/edit/{id}(id=${task.id})}">
+                <button>Editar</button>
+            </a></td>
+            <td>
+                <form th:action="@{/ui/tasks/delete/{id}(id=${task.id})}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit">Deletar</button>
+                </form>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+<a href="/ui/tasks/create">Criar tarefa</a>
+</body>
+</html>
