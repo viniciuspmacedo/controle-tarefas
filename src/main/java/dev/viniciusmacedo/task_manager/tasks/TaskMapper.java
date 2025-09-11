@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class TaskMapper {
 
     public TaskModel map(TaskDTO dto) {
-        return new TaskModel(dto.id(), dto.title(), dto.description(), dto.id());
+        return new TaskModel(dto.getId(), dto.getTitle(), dto.getDescription(), dto.getUserId());
     }
 
     public TaskDTO map(TaskModel task) {

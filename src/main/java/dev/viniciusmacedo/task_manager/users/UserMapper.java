@@ -20,12 +20,12 @@ public class UserMapper {
 
     public UserModel map(UserDTO dto) {
         UserModel user = new UserModel();
-        user.setId(dto.id());
-        user.setUsername(dto.username());
-        user.setEmail(dto.email());
+        user.setId(dto.getId());
+        user.setUsername(dto.getUsername());
+        user.setEmail(dto.getEmail());
 
-        if (dto.tasks() != null) {
-            List<TaskModel> tasks = dto.tasks().stream()
+        if (dto.getTasks() != null) {
+            List<TaskModel> tasks = dto.getTasks().stream()
                     .map(taskMapper::map)
                     .collect(Collectors.toList());
             user.setTasks(tasks);
